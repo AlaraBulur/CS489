@@ -4,14 +4,110 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Morse Code Converter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Text to Morse Code Converter</h1>
+    <form id="morse-form">
+        <label for="text-input">Enter Text:</label>
+        <input type="text" id="text-input" name="text" required>
+        <button type="submit">Convert to Morse Code</button>
+    </form>
+
+    <h2>Morse Code Translation</h2>
+    <p id="morse-code-text">Morse code will appear here.</p>
+
+    <h2>Audio</h2>
+    <audio id="audio-player" controls>
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        document.getElementById("morse-form").addEventListener("submit", async function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const textInput = document.getElementById("text-input").value;
+
+            const formData = new FormData();
+            formData.append("text", textInput);
+
+            try {
+                // Send the input text to the server
+                const response = await fetch("/convert", {
+                    method: "POST",
+                    body: formData,
+                });
+
+                // Parse the response
+                const result = await response.json();
+                
+                // Display the Morse code text
+                const morseCodeText = result.morse_code;
+                document.getElementById("morse-code-text").textContent = morseCodeText;
+
+                // Set the audio source to the returned audio URL
+                const audioUrl = result.audio_url;
+                const audioPlayer = document.getElementById("audio-player");
+                audioPlayer.src = audioUrl;  // Set the source of the audio player
+                audioPlayer.style.display = "block"; // Ensure audio player is visible
+
+            } catch (error) {
+                console.error("Error:", error);
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morse Code Converter</title>
     <link href = "{{url_for('static', filename='styles/style.css')}}" rel="stylesheet"/>
 </head>
 <body>
-    <h1>Convert text to morse code</h1>
-    <form action="/texttomorse">
-        <input type="text" name="input" id="input" 
-        placeholder="Enter text to convert"/>
-        <button type="submit">Convert!</button>
-    </form>         
+    <h1>Text to Morse Code Converter</h1>
+    <form id="morseForm">
+        <label for="inputText">Enter text to convert:</label><br><br>
+        <input type="text" id="inputText" name="inputText" required><br><br>
+        <button type="submit">Convert to Morse Code</button>
+    </form>
+
+    <h3>Translated Morse Code:</h3>
+    <div id="morseCodeOutput"></div>
+
+
+    <script>
+        const form = document.getElementById('morseForm');
+        const outputDiv = document.getElementById('morseCodeOutput');
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const inputText = document.getElementById('inputText').value;
+
+            // Send request to Python server to process the text
+            const response = await fetch('/convert', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ text: inputText })
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                outputDiv.textContent = data.morseCode;
+
+                // Play audio of the morse code
+                const audio = new Audio(data.audioUrl);
+                audio.play();
+            } else {
+                alert("Error processing your request.");
+            }
+        });
+    </script>
+
+
 </body>
-</html>
+</html> -->
