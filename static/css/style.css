@@ -27,6 +27,9 @@ body {
     padding: 20px;
     background-color: #f0f0f0;
     align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 #morseCodeOutput {
     font-family: monospace;
@@ -35,7 +38,7 @@ body {
     white-space: pre-wrap;
 }
 button {
-    padding: 10px 20px;
+    padding: 10px 10px;
     font-size: 16px;
     cursor: pointer;
     background-color: #4CAF50;
