@@ -1,48 +1,202 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
 }
 
-/* body {
-    padding: 2rem;
-    background-color: #333;
-    color: whitesmoke;
-    min-height: 100vh;
+body{
+    font-family: 'Inter'; font-size: 16px;
+}
+
+.wrapper{
+    width:100%;
+    position: absolute;
+    z-index: 1;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
+
     align-items: center;
-    gap: 2rem;
-    font-size: 2rem;
 }
 
-input, button {
-    font-size: 2rem;
-    padding: 1rem;
-    border-radius: 10px;
+.myheader {
+    height: 30%;
+    width: 100vh;
+}
+
+.myform {
+    /* background-color: red; */
+    width: 100%;
+    height: 150px; 
+    display: flex;
+    flex-direction: row;  
+    justify-content: center;
+    align-items: center;
+}
+
+#morse-form {
+    /* background-color: blue; */
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+#text-input{
+    width: 50%;
+    height: 50px;
+    border: none;
+    border-radius: 8px;
+    text-align: left;
+    padding-left: 10px;
+    font-family: 'Inter';
+    font-size: 16px;
+    box-shadow: 0 6px 20px 0 rgba(38, 21, 123, 0.3);
+}
+
+.wrapper h1{
+    text-align: center;
+    color: white;
+    font-size: 50px;
+    width: 100%;
+    margin-top: 15%;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 20px rgba(38, 21, 123, 0.3);
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 25px;
+    width: 100%;
+    margin: auto;
+    color: white;
+}
+
+
+@keyframes gradient{
+    50%{
+        transform: scale(1.3)translate(100px);
+    }
+}
+
+
+.container {
+    z-index: -1;
+    width: 100%;
+    height: 100%;    
+    overflow: hidden;
+}
+
+.box{
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.box li{
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 25px;
+    height: 25px;
+    animation: gradient 4s infinite;
+    bottom: -150px;
+    border-radius: 20%;
+}
+
+
+.box li:nth-child(1){
+    height: 100%;
+    width: 100%;
+    top: -5%;
+    left: -10%;
+    background-color: #26157B;
+}
+
+.box li:nth-child(2){
+    height: 80%;
+    width: 70%;
+    top: -12%;
+    right: -12%;
+    animation-delay: 2s;
+    background-color: #6457A6;
+}
+
+.box li:nth-child(3){
+    height: 50%;
+    width: 75%;
+    bottom: -10%;
+    left: -5%;
+    animation-delay: 1s;
+    background-color: #76E5FC;
+}
+    
+.box li:nth-child(4){
+    height: 65%;
+    width: 80%;
+    bottom: -15%;
+    right: -20%;
+    animation-delay: 3s;
+    background-color: #F44174;
+}
+
+.box li:nth-child(5){
+    height: 70%;
+    width: 65%;
+    bottom: 0;
+    right: -50%;
+    animation-delay: 1s;
+    background-color: #9DACFF;
+}
+
+.container::after{
+    position: absolute;
+    content: '';
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(200px); 
+}
+
+/* .translation {
+    background-color: red;
+    width:100%;
+    position: absolute;
+    z-index: 2;
+    overflow: hidden;
+    align-items: center;
+    overflow: hidden;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
 } */
 
-body {
-    font-family: Arial, sans-serif;
-    padding: 20px;
-    background-color: #f0f0f0;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
 #morseCodeOutput {
     font-family: monospace;
     font-size: 20px;
     margin-top: 20px;
     white-space: pre-wrap;
 }
-button {
-    padding: 10px 10px;
-    font-size: 16px;
+
+/*  convert button styling */
+
+ button {
+    padding: 10px 30px;
+    font-size: 20px;
     cursor: pointer;
-    background-color: #4CAF50;
+    background-color: #2C2C2C;
     color: white;
-    border: none;
-    border-radius: 5px;
+    border: 3px solid white;
+    border-radius: 23px;
+    box-shadow: 0 6px 20px 0 rgba(38, 21, 123, 0.3);
+}
+
+#button:hover {
+    background-color: black;
+    transition: 0.7s;
 }

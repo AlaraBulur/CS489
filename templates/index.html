@@ -7,20 +7,47 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <h1>Text to Morse Code Converter</h1>
-    <form id="morse-form">
-        <label for="text-input">Enter Text:</label>
-        <input type="text" id="text-input" name="text" required>
-        <button type="submit">Convert to Morse Code</button>
-    </form>
+   
+    <div class = "wrapper">
+        <div class="myheader">
+            <h1>Text to Morse Code Converter</h1>
+            <p class="subtitle">Final Project | CS 489: Computational Sound</p>
+        </div>
+        <div class = "myform">
+            <form id="morse-form">
+                <!-- <label for="text-input">Enter Text:</label>  -->
+                <input type="text" id="text-input" name="text" required>
+                <!-- <textarea type="text" id="text-input" name="text" required></textarea> -->
+                <button id="button" type="submit">Convert</button>
+            </form>
+        </div>
+    </div>
 
-    <h2>Morse Code Translation</h2>
-    <p id="morse-code-text">Morse code will appear here.</p>
+    
+   
+    <!--
+    <div class="translation">
+        <div class="morse_text">
+            <h2>Morse Code Translation</h2>
+            <p id="morse-code-text">Morse code will appear here.</p>
+        </div>
+        <div class="audio">
+            <audio id="audio-player" controls>
+                Your browser does not support the audio element.
+            </audio>
+        </div> 
+    </div> -->
 
-    <h2>Audio</h2>
-    <audio id="audio-player" controls>
-        Your browser does not support the audio element.
-    </audio>
+    <div class="container">
+        <ul class="box">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
 
     <script>
         document.getElementById("morse-form").addEventListener("submit", async function(event) {
