@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template, jsonify, send_file
 import os
 import texttomorse
+import time
 
 app = Flask(__name__)
 
@@ -22,8 +23,9 @@ def convert_to_morse():
     # Generate the audio for the Morse code
     audio_stream = texttomorse.generate_audio(morse_code)
     
+    timestamp = int(time.time() * 1000)  # Current time in milliseconds
+    audio_filename = f"morse_{timestamp}.wav"
     # Save the audio to a specific location (e.g., 'static/audio')
-    audio_filename = f"{input_text.replace(' ', '_')}_morse.wav"  # Customize the filename here
     audio_filepath = os.path.join(audio_directory, audio_filename)
 
     with open(audio_filepath, 'wb') as f:
