@@ -50,6 +50,7 @@ body{
     border-radius: 8px;
     text-align: left;
     padding-left: 20px;
+    padding-right: 20px;
     font-family: 'Inter';
     font-size: 16px;
     box-shadow: 0 6px 20px 0 rgba(38, 21, 123, 0.3);
@@ -73,13 +74,12 @@ body{
     display: flex;
     justify-content: center;
     flex-direction: row;
-    gap: 5rem;
+    gap: 3rem;
     outline: 10px solid rgba(255, 255, 255, 0.2);
 }
 
 .morse_text {
-    width: 50vw;
-    height: 30vh; 
+    color:  #2C2C2C;
 }
 
 .audio{
@@ -91,11 +91,29 @@ body{
     font-family: 'Inter';
     font-size: 25px;
     margin-bottom: 15px;
-
+    color:  #2C2C2C;
 }
+
 
 #audio-player{
     width:30vw;
+}
+
+#morse-result {
+    text-align: left;
+    align-items: left;
+    width: 50vw;
+    height: 20vh;
+    border-radius: 8px;
+    border: 2px solid #D9D9D9;
+    background-color: #FAFAFA;
+    padding: 15px;
+    font-family: 'Inter';
+    font-size: 16px;
+}
+
+#morse-result:focus{
+    outline:none;
 }
 
 .wrapper h1{
@@ -226,5 +244,5 @@ body{
 
 #button:hover {
     background-color: black;
-    transition: 0.7s;
+    transition: 0.4s;
 }

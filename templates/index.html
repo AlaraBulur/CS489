@@ -25,7 +25,8 @@
     <div class="translation">
         <div class="morse_text">
             <p id = "morse-title">Morse Code Translation<p>
-            <p id="morse-code-text">Morse code will appear here.</p>
+            <textarea id="morse-result" style="resize: none;" readonly>Morse code will appear here.</textarea>
+            
         </div>
         <div class="audio">
             <audio id="audio-player" controls>
@@ -67,7 +68,7 @@
                 
                 // Display the Morse code text
                 const morseCodeText = result.morse_code;
-                document.getElementById("morse-code-text").textContent = morseCodeText;
+                document.getElementById("morse-result").value = morseCodeText;
 
                 // Set the audio source to the returned audio URL
                 const audioUrl = result.audio_url;
