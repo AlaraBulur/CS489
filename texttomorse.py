@@ -37,8 +37,8 @@ def generate_audio(morse_code):
     freq = 800  # Frequency of the beep sound in Hz
     duration_dot = 0.1  # Duration of a dot in seconds
     duration_dash = 0.3 # Duration of a dash in seconds
+    silence = 0.1 # Duration of silence betweens dots, dashes, or words
     amplitude = 4096  # Amplitude of the sound
-    silence = 0.1 # Duration of silence betweens dots and dashes
 
     # Create a waveform for the beep sound (sine wave)
     def generate_waveform(duration, freq):
