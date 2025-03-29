@@ -54,7 +54,7 @@ def generate_audio(morse_code):
         if symbol == '.':
             # Add the waveform for a dot
             audio_data.append(generate_waveform(duration_dot, freq))
-            audio_data.append(generate_silence(silence*2))
+            audio_data.append(generate_silence(silence))
         elif symbol == '-':
             # Add the waveform for a dash
             audio_data.append(generate_waveform(duration_dash, freq))
